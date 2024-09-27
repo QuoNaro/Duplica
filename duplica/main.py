@@ -1,14 +1,22 @@
-from fastapi import FastAPI
-from apscheduler.schedulers.background import BackgroundScheduler
-from datetime import datetime
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+from app.pages.router import router as pages_router
+from fastapi.staticfiles import StaticFiles
+
 
 app = FastAPI()
+app.include_router(pages_router)
+    
 
-# Функция для выполнения фоновой задачи
-def background_task():
-    print(f"Фоновая задача выполнена в {datetime.now()}")
+templates = Jinja2Templates(directory='app/templates')
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
-# Настройка планировщика задач
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=background_task, trigger="interval", seconds=10)
-scheduler.start()
+@app.get("/")
+async def root(request: Request):
+    return templates.TemplateResponse('main.html', context={'request': request})
+
+@app.get("/tasks/")
+async def root(request: Request):
+    return templates.TemplateResponse('tasks.html', context={'request': request})
+
+
