@@ -16,15 +16,89 @@ html,body {
 
 header nav li {
     display: inline; /* Элементы списка отображаются как строчные */
-    margin-right: 10px; /* Отступ между элементами */
+    
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    display: flex;
+}
+
+header nav {
+    font-family: 'Roboto';
+    font-weight: 300;
+    position: relative;
+    text-transform: uppercase;
+    height: 100%;
+    width: 50%;
+    gap: 8px; /* Отступ между элементами */
+    display: flex;
+    padding: 5px;
+    
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 17px;
+    color: white;
+}
+
+.logo {
+    align-items: center;
 }
 
 
+.logo .square {
+    position: absolute;
+    width: 250px;
+    border-radius: 2.7em;
+    height: 250px;
+    rotate: 45deg;
+    background-color: #16d39b;
+    display: flex;
+    z-index: 1;
+}
+
+.logo .text {
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-style: italic;
+    margin-left: 25px;
+}
+
+
+.link{
+    text-decoration: none;
+    cursor: pointer;
+    color:  white;
+    transition: ease-in-out .2s;
+}
+
+.link:hover {
+    color: #29be92;
+    transition: ease-in-out .2s;
+}
+.link.active {
+    color : #16d39b;
+}
 
 header {
+    overflow: hidden;
+    box-shadow: #161616 0px 1px 20px 1px;
     position: static;
+    display: flex;
+    flex-direction: row;
     top: 0;
-    background-color: #37A49B;
+    background-color: #262626;
     height: 80px;
     width: 100%; /* Занимает всю ширину окна */
     z-index: 1000; /* Обеспечивает, что хэдэр будет выше остальных элементов */
@@ -32,6 +106,9 @@ header {
 
 .container {
     width: 100%;
-    height: 90%;
+    height: 100%;
+    background-repeat: no-repeat; /* Не повторять изображение */
+    background-position: center; /* Центрировать изображение */
+    background-size: cover; /* Изображение растягивается на весь экран */
 
 }

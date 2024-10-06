@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Duplica</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+    
 </head>
 <body>
+    
     <header>
+        <div class="logo">
+            <div class="square"></div>
+            <div class="text">Duplica</div>
+
+
+        </div>
         <nav>
-            <li>Задачи</li>
             
-            
+            <li><a id="tasks" href="/tasks" class="link">Задачи</a></li>
+            <li><a id="settings" href="/settings" class="link">Параметры</a></li>
+            <li><a id="plugins" href="/plugins" class="link">Расширения</a></li>
+
         </nav>
     </header>
-    <div class="container">
+    <div class="container" style='background-image: url("{{ url_for('static', path='img/Background.jpg') }}");'>
         {% block content %}{% endblock %}
     </div>
 </body>
