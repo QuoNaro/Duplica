@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from app.pages.router import router as pages_router
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
-
+from app import models
 
 
 app = FastAPI()
